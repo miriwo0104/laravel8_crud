@@ -17,11 +17,9 @@ class ContentController extends Controller
         $input_content = new Content();
         $input_content->content = $request['content'];
         $input_content->save();
-        //  下記を修正する
         return redirect(route('output'));
     }
 
-    // 下記を追記する
     public function output()
     {
         $contents_get_query = Content::select('*');
@@ -29,6 +27,17 @@ class ContentController extends Controller
     
         return view('contents.output', [
             'items' => $items,
+        ]);
+    }
+
+    // 下記を追記する
+    public function detail($content_id)
+    {
+        $content_get_query = Content::select('*');
+        $item = $content_get_query->find($content_id);
+
+        return view('contents.detail', [
+            'item' => $item,
         ]);
     }
     // 上記までを追記する
