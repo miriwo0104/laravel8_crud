@@ -30,7 +30,6 @@ class ContentController extends Controller
         ]);
     }
 
-    // 下記を追記する
     public function detail($content_id)
     {
         $content_get_query = Content::select('*');
@@ -39,6 +38,26 @@ class ContentController extends Controller
         return view('contents.detail', [
             'item' => $item,
         ]);
+    }
+
+    // 下記を追記する
+    public function edit($content_id)
+    {
+        $content_get_query = Content::select('*');
+        $item = $content_get_query->find($content_id);
+
+        return view('contents.edit', [
+            'item' => $item,
+        ]);
+    }
+
+    public function update(Request $request)
+    {
+        $content_get_query = Content::select('*');
+        $content_info = $content_get_query->find($request['id']);
+        $content_info->content = $request['content'];
+        $content_info->save();
+        return redirect(route('output'));
     }
     // 上記までを追記する
 }

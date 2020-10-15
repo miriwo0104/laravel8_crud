@@ -25,5 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/input', [ContentController::class, 'input'])->name('input');
 Route::post('/save', [ContentController::class, 'save'])->name('save');
 Route::get('/output', [ContentController::class, 'output'])->name('output');
-// 下記を追記する
 Route::get('/detail/{content_id}', [ContentController::class, 'detail'])->name('detail');
+// 下記を追記する
+Route::get('/edit/{content_id}', [ContentController::class, 'edit'])->name('edit');
+Route::post('/update', [ContentController::class, 'update'])->name('update');
+// 上記までを追記する
