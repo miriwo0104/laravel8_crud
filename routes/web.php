@@ -23,5 +23,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/input', [ContentController::class, 'input'])->name('input');
-// 下記を追記する
 Route::post('/save', [ContentController::class, 'save'])->name('save');
+// 下記を追記する
+Route::get('/output', [ContentController::class, 'output'])->name('output');
