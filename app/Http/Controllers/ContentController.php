@@ -40,7 +40,6 @@ class ContentController extends Controller
         ]);
     }
 
-    // 下記を追記する
     public function edit($content_id)
     {
         $content_get_query = Content::select('*');
@@ -57,6 +56,16 @@ class ContentController extends Controller
         $content_info = $content_get_query->find($request['id']);
         $content_info->content = $request['content'];
         $content_info->save();
+        return redirect(route('output'));
+    }
+
+    // 下記を追記する
+    public function delete(Request $request)
+    {
+        $contents_delete_query = Content::select('*');
+        $contents_delete_query->find($request['id']);
+        $contents_delete_query->delete();
+    
         return redirect(route('output'));
     }
     // 上記までを追記する
