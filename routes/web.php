@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// 下記を追記する
 use App\Http\Controllers\ContentController;
 
 /*
@@ -23,5 +22,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// 下記を追記する
 Route::get('/input', [ContentController::class, 'input'])->name('input');
+// 下記を追記する
+Route::post('/save', [ContentController::class, 'save'])->name('save');
