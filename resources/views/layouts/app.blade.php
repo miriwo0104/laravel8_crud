@@ -60,10 +60,15 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+
+                                    {{-- 下記を追記する --}}
+                                    <a class="dropdown-item" href="{{ route('home') }}">home</a>
+                                    <a class="dropdown-item" href="{{ route('input') }}">input</a>
+                                    <a class="dropdown-item" href="{{ route('output') }}">output</a>
+                                    {{-- 上記までを追記する --}}
                                 </div>
                             </li>
                         @endguest
