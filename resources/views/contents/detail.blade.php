@@ -1,11 +1,14 @@
-{{-- 下記を追記する --}}
 @extends('layouts.app')
 
 @section('content')
-{{-- 上記までを追記する --}}
 
 <h1>detail</h1>
 
+{{-- 下記を追記する --}}
+@if (isset($item['file_path']))
+<img src="{{asset('storage/' . $item['file_path'])}}" alt="{{asset('storage/' . $item['file_path'])}}">
+@endif
+{{-- 上記までを追記する --}}
 <p>投稿ID: {{$item['id']}}</p>
 <p>投稿内容: {{$item['content']}}</p>
 <p>投稿時間: {{$item['created_at']}}</p>
@@ -16,5 +19,4 @@
     <input type="submit" value="削除">
 </form>
 
-{{-- 下記を追記する --}}
 @endsection
