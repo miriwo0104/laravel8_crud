@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::get('/edit/{content_id}', [ContentController::class, 'edit'])->name('edit
 Route::post('/update', [ContentController::class, 'update'])->name('update');
 // 下記を追記する
 Route::post('/delete', [ContentController::class, 'delete'])->name('delete');
+
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
