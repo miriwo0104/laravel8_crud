@@ -13,7 +13,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // 下記を追記
+        $this->app->bind(
+            \App\Repositories\UserRepositoryInterface::class,
+            \App\Repositories\UserRepository::class
+        );
+        // 上記までを追記
     }
 
     /**

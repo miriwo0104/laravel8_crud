@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Services;
-
-use App\Models\User;
+// 下記を修正
+use App\Repositories\UserRepository;
 
 class UserService
 {
@@ -10,11 +10,14 @@ class UserService
      *
      * @var User
      */
-    private $user;
+    // 下記を修正
+    private $userRepository;
     
-    public function __construct(User $user)
+    // 下記を修正
+    public function __construct(UserRepository $userRepository)
     {
-        $this->user = $user;
+        // 下記を修正
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -25,6 +28,7 @@ class UserService
      */
     public function getUserInfoByUserId($user_id)
     {
-        return $user_info = User::select('*')->find($user_id);
+        // 下記を修正
+        return $this->userRepository->getUserInfoByUserId($user_id);
     }
 }
