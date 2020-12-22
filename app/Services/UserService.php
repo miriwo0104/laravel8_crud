@@ -2,7 +2,7 @@
 
 namespace App\Services;
 // 下記を修正
-use App\Repositories\UserRepository;
+use App\Repositories\UserRepositoryInterface;
 
 class UserService
 {
@@ -14,7 +14,7 @@ class UserService
     private $userRepository;
     
     // 下記を修正
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepositoryInterface $userRepository)
     {
         // 下記を修正
         $this->userRepository = $userRepository;
